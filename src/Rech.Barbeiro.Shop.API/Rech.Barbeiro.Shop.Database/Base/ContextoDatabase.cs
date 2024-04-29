@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
+using Rech.Barbeiro.Shop.Database.Base.ConfigDomain;
 using Rech.Barbeiro.Shop.Domain.Agendamento;
 using Rech.Barbeiro.Shop.Domain.AgendamentoFolga;
 using Rech.Barbeiro.Shop.Domain.Barbearia;
@@ -8,10 +10,11 @@ using Rech.Barbeiro.Shop.Domain.ClienteEndereco;
 using Rech.Barbeiro.Shop.Domain.DiasTrabalhoBarbeiro;
 using Rech.Barbeiro.Shop.Domain.ServicoBarbearia;
 using Rech.Barbeiro.Shop.Domain.ServicoBarbeiro;
+using System.Reflection;
 
 namespace Rech.Barbeiro.Shop.Database.Base
 {
-    public class ContextoDatabase : DbContext
+    public class ContextoDatabase : IdentityDbContext
     {
         public DbSet<BarbeariaEntidade> Barbearias { get; set; }
         public DbSet<ServicoBarbeariaEntidade> ServicosBarbearias { get; set; }
@@ -22,5 +25,10 @@ namespace Rech.Barbeiro.Shop.Database.Base
         public DbSet<ServicoBarbeiroEntidade> ServicosBarbeiro { get; set; }
         public DbSet<AgendamentoEntidade> Agendamentos { get; set; }
         public DbSet<AgendamentoFolgaEntidade> FolgasBarbearia { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetAssembly(typeof(AgendamentoEntidadeConfigDb)));
+        }
     }
 }
