@@ -1,10 +1,11 @@
 ﻿using Rech.Barbeiro.Shop.Domain.Barbeiro;
+using Rech.Barbeiro.Shop.Domain.Base;
 using Rech.Barbeiro.Shop.Domain.Cliente;
 using Rech.Barbeiro.Shop.Domain.ServicoBarbearia;
 
 namespace Rech.Barbeiro.Shop.Domain.Agendamento
 {
-    public class AgendamentoEntidade
+    public class AgendamentoEntidade : Entidade
     {
         public required Guid ClienteId { get; set; }
         public virtual ClienteEntidade Cliente { get; set; }
