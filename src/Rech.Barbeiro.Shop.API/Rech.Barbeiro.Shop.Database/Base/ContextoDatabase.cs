@@ -26,9 +26,9 @@ namespace Rech.Barbeiro.Shop.Database.Base
         public DbSet<AgendamentoEntidade> Agendamentos { get; set; }
         public DbSet<AgendamentoFolgaEntidade> FolgasBarbearia { get; set; }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        protected override void OnModelCreating(ModelBuilder builder)
         {
-            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetAssembly(typeof(AgendamentoEntidadeConfigDb)));
+            builder.ApplyConfigurationsFromAssembly(Assembly.GetAssembly(typeof(AgendamentoEntidadeConfigDb)));
         }
     }
 }

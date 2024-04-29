@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using Rech.Barbeiro.Shop.Database.Base;
+using Rech.Barbeiro.Shop.Database.Repositorio;
+using Rech.Barbeiro.Shop.Database.Repositorio.Interface;
 using System.Text;
 
 namespace Rech.Barbeiro.Shop.API.Config
@@ -13,6 +13,15 @@ namespace Rech.Barbeiro.Shop.API.Config
     {
         public static IServiceCollection AddInjecaoDepedencia(this IServiceCollection services)
         {
+            services.AddScoped<IAgendamentoRepositorio, AgendamentoRepositorio>();
+            services.AddScoped<IAgendamentoFolgaRepositorio, AgendamentoFolgaRepositorio>();
+            services.AddScoped<IBarbeariaRepositorio, BarbeariaRepositorio>();
+            services.AddScoped<IBarbeiroRepositorio, BarbeiroRepositorio>();
+            services.AddScoped<IClienteEnderecoRepositorio, ClienteEnderecoRepositorio>();
+            services.AddScoped<IClienteRepositorio, ClienteRepositorio>();
+            services.AddScoped<IDiasTrabalhoBarbeiroRepositorio, DiasTrabalhoBarbeiroRepositorio>();
+            services.AddScoped<IServicoBarbeariaRepositorio, ServicoBarbeariaRepositorio>();
+            services.AddScoped<IServicoBarbeiroRepositorio, ServicoBarbeiroRepositorio>();
 
             return services;
         }
