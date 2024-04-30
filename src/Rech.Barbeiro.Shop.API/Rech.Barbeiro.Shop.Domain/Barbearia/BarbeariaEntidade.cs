@@ -7,12 +7,20 @@ namespace Rech.Barbeiro.Shop.Domain.Barbearia
 {
     public class BarbeariaEntidade : Entidade
     {
-        public required string Nome { get; set; }
-        public required string Logo { get; set; }
-        public required string Endereco { get; set; }
+        public string Nome { get; set; }
+        public string Logo { get; set; }
+        public string Endereco { get; set; }
         public string Descricao { get; set; }
-        public required Guid UsuarioId { get; set; }
+        public Guid UsuarioId { get; set; }
         public virtual IEnumerable<BarbeiroEntidade> Barbeiros { get; set; }
         public virtual IEnumerable<ServicoBarbeariaEntidade> Servicos { get; set; }
+
+        public BarbeariaEntidade(string nome, string logo, string endereco, Guid usuarioId)
+        {
+            Nome = nome;
+            Logo = logo;
+            Endereco = endereco;
+            UsuarioId = usuarioId;
+        }
     }
 }

@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Rech.Barbeiro.Shop.Database.Base;
 using Rech.Barbeiro.Shop.Database.Repositorio;
-using Rech.Barbeiro.Shop.Database.Repositorio.Interface;
+using Rech.Barbeiro.Shop.Domain.Interfaces;
 using System.Text;
 
 namespace Rech.Barbeiro.Shop.API.Config

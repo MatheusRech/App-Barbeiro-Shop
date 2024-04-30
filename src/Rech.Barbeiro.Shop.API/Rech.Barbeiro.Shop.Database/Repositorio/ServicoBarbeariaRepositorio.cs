@@ -1,6 +1,6 @@
 ﻿using Rech.Barbeiro.Shop.Database.Base;
 using Rech.Barbeiro.Shop.Database.Repositorio.Base;
-using Rech.Barbeiro.Shop.Database.Repositorio.Interface;
+using Rech.Barbeiro.Shop.Domain.Interfaces;
 using Rech.Barbeiro.Shop.Domain.ServicoBarbearia;
 using System;
 using System.Collections.Generic;

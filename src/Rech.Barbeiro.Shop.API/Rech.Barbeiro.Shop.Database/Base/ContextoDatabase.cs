@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Rech.Barbeiro.Shop.Database.Base.ConfigDomain;
 using Rech.Barbeiro.Shop.Domain.Agendamento;
@@ -14,8 +15,13 @@ using System.Reflection;
 
 namespace Rech.Barbeiro.Shop.Database.Base
 {
-    public class ContextoDatabase : IdentityDbContext
+    public class ContextoDatabase : IdentityDbContext<IdentityUser<Guid>, IdentityRole<Guid>, Guid>
     {
+
+        public ContextoDatabase(DbContextOptions options) : base(options)
+        {
+        }
+
         public DbSet<BarbeariaEntidade> Barbearias { get; set; }
         public DbSet<ServicoBarbeariaEntidade> ServicosBarbearias { get; set; }
         public DbSet<ClienteEntidade> Clientes { get; set; }

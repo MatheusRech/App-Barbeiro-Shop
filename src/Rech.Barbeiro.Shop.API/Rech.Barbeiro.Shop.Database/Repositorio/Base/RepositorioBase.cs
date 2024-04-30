@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Rech.Barbeiro.Shop.Database.Base;
-using Rech.Barbeiro.Shop.Database.Repositorio.Base.Interface;
 using Rech.Barbeiro.Shop.Domain.Base;
+using Rech.Barbeiro.Shop.Domain.Interfaces;
 
 namespace Rech.Barbeiro.Shop.Database.Repositorio.Base
 {
@@ -19,6 +19,11 @@ namespace Rech.Barbeiro.Shop.Database.Repositorio.Base
         public async Task<TEntidade> BuscarPorId(Guid id)
         {
             return await _tabela.FirstOrDefaultAsync(t => t.Id == id);
+        }
+
+        public async Task<bool> EntidadeCadastrada(TEntidade entidade)
+        {
+            return await _tabela.AnyAsync(x => x.Id == entidade.Id);
         }
 
         public IQueryable<TEntidade> Query()

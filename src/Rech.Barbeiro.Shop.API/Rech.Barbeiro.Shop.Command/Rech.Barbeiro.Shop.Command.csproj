@@ -10,4 +10,12 @@
     <PackageReference Include="MediatR" Version="12.2.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Barbearia\RespostaComando\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Rech.Barbeiro.Shop.Database\Rech.Barbeiro.Shop.Database.csproj" />
+  </ItemGroup>
+
 </Project>

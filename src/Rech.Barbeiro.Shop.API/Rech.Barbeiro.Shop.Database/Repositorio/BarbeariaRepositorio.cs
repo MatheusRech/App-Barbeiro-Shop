@@ -1,7 +1,7 @@
 ﻿using Rech.Barbeiro.Shop.Database.Base;
 using Rech.Barbeiro.Shop.Database.Repositorio.Base;
-using Rech.Barbeiro.Shop.Database.Repositorio.Interface;
 using Rech.Barbeiro.Shop.Domain.Barbearia;
+using Rech.Barbeiro.Shop.Domain.Interfaces;
 
 namespace Rech.Barbeiro.Shop.Database.Repositorio
 {
