@@ -1,1 +1,14 @@
-/* You can add global styles to this file, and also import other style files */
+@use './app/estilos/app.estilo.scss' as app-estilo;
+
+@import './app//estilos//botao-app.estilo.scss';
+
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    font-family: app-estilo.$font;
+}
+
+h1,h2,h3,h4,h5,p {
+    margin: 0;
+}

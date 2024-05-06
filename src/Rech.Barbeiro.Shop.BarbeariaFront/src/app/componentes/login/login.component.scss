@@ -1,0 +1,31 @@
+@use './../../estilos/app.estilo.scss' as app-estilo;
+
+:host {
+    width: 100%;
+    height: 100%;
+    background-color: app-estilo.$cor-background;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.painel-login {
+    display: flex;
+    flex-flow: column;
+    gap: 10px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: rgba($color: #000000, $alpha: 0.25) 0 4px 4px 0;
+
+    img {
+        max-width: 400px;
+        height: auto;
+    }
+
+    form {
+        display: flex;
+        flex-flow: column nowrap;
+        gap: 10px;
+    }
+}

@@ -1,0 +1,38 @@
+@use './../../../estilos/app.estilo.scss' as app-estilo;
+
+:host {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+label {
+    font-size: 8px;
+    font-weight: 600;
+    color:  app-estilo.$cor-principal;
+}
+
+.container-input {
+    width: calc(100% - 22px);
+    border-radius: 8px;
+    border: 1px solid app-estilo.$cor-principal;
+    display: flex;
+    padding: 10px;
+    background-color: white;
+
+    input {
+        color:  app-estilo.$cor-principal;
+        text-decoration: none;
+        border: none;
+        width: 100%;
+        font-family: app-estilo.$font;
+        background-color: transparent;
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    &.desabilitado {
+        background-color: #DADADA;
+    }
+}

@@ -1,0 +1,23 @@
+@use './../../../estilos/app.estilo.scss' as app-estilo;
+
+:host {
+    display: flex;
+    flex-flow: column;
+    width: calc(100% - 20px);
+    background-color: white;
+    border-bottom: 2px solid app-estilo.$cor-secundaria;
+    border-radius: 8px 8px 0 0;
+    padding: 10px;
+}
+
+p {
+    color: app-estilo.$cor-secundaria;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+h2 {
+    color: app-estilo.$cor-principal;
+    font-size: 24px;
+    font-weight: 800;
+}

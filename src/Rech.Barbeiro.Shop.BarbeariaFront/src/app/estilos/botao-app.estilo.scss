@@ -1,0 +1,27 @@
+@use './app.estilo.scss' as app-estilo;
+
+.botao-app {
+    color: white;
+    background-color: app-estilo.$cor-principal;
+    border: none;
+    padding: 10px;
+    gap: 10px;
+    display: inline-flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.45) 0 2px 4px 0;
+    cursor: pointer;
+    font-weight: 800;
+    font-family: app-estilo.$font;
+    font-size: 16px;
+
+    &.secundario {
+        background-color: app-estilo.$cor-secundaria;  
+    }
+
+    &.erro {
+        background-color: app-estilo.$cor-erro;
+    }
+}

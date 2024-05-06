@@ -1,0 +1,15 @@
+@use './../../../estilos/app.estilo.scss' as app-estilo;
+
+:host {
+    background-color: app-estilo.$cor-principal;
+    width: 220px;
+    display: flex;
+    flex-flow: column nowrap;
+    padding: 10px;
+    position: sticky;
+    height: calc(100% - 20px);
+}
+
+.titulo {
+    color: white;
+}
