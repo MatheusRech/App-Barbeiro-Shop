@@ -4,7 +4,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Rech.Barbeiro.Shop.Database.Base;
 using Rech.Barbeiro.Shop.Database.Repositorio;
+using Rech.Barbeiro.Shop.Domain.Barbearia.Handlers;
 using Rech.Barbeiro.Shop.Domain.Interfaces;
+using Rech.Barbeiro.Shop.Domain.Usuario;
 using System.Text;
 
 namespace Rech.Barbeiro.Shop.API.Config
@@ -22,6 +24,12 @@ namespace Rech.Barbeiro.Shop.API.Config
             services.AddScoped<IDiasTrabalhoBarbeiroRepositorio, DiasTrabalhoBarbeiroRepositorio>();
             services.AddScoped<IServicoBarbeariaRepositorio, ServicoBarbeariaRepositorio>();
             services.AddScoped<IServicoBarbeiroRepositorio, ServicoBarbeiroRepositorio>();
+
+
+            services.AddMediatR(config =>
+            {
+                config.RegisterServicesFromAssemblyContaining<CadastrarBarbeariaComandoHandler>();
+            });
 
             return services;
         }
@@ -53,7 +61,7 @@ namespace Rech.Barbeiro.Shop.API.Config
                 options.UseNpgsql(configuration.GetConnectionString("Database"));
             });
 
-            services.AddIdentity<IdentityUser, IdentityRole>(config =>
+            services.AddIdentity<UsuarioEntidade, IdentityRole<Guid>>(config =>
             {
                 config.User.AllowedUserNameCharacters = "0123456789";
                 config.Password.RequireNonAlphanumeric = true;

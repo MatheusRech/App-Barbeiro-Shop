@@ -9,10 +9,10 @@ namespace Rech.Barbeiro.Shop.Domain.DiasTrabalhoBarbeiro
         public required Guid BarbeiroId { get; set; }
         public virtual BarbeiroEntidade Barbeiro { get; set; }
         public required DiaDaSemana DiaDaSemana { get; set; }
-        public required DateTime HorarioInicio { get; set; }
-        public required DateTime HorarioFim { get; set; }
+        public required TimeOnly HorarioInicio { get; set; }
+        public required TimeOnly HorarioFim { get; set; }
         public required bool RealizaAlmoco { get; set; }
-        public DateTime? HorarioInicioAlmoco { get; set; }
-        public DateTime? HorarioFimAlmoco { get; set; }
+        public TimeOnly? HorarioInicioAlmoco { get; set; }
+        public TimeOnly? HorarioFimAlmoco { get; set; }
     }
 }

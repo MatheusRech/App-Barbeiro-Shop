@@ -11,14 +11,15 @@ using Rech.Barbeiro.Shop.Domain.ClienteEndereco;
 using Rech.Barbeiro.Shop.Domain.DiasTrabalhoBarbeiro;
 using Rech.Barbeiro.Shop.Domain.ServicoBarbearia;
 using Rech.Barbeiro.Shop.Domain.ServicoBarbeiro;
+using Rech.Barbeiro.Shop.Domain.Usuario;
 using System.Reflection;
 
 namespace Rech.Barbeiro.Shop.Database.Base
 {
-    public class ContextoDatabase : IdentityDbContext<IdentityUser<Guid>, IdentityRole<Guid>, Guid>
+    public class ContextoDatabase : IdentityDbContext<UsuarioEntidade, IdentityRole<Guid>, Guid>
     {
 
-        public ContextoDatabase(DbContextOptions options) : base(options)
+        public ContextoDatabase(DbContextOptions<ContextoDatabase> options) : base(options)
         {
         }
 
@@ -34,7 +35,8 @@ namespace Rech.Barbeiro.Shop.Database.Base
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            builder.ApplyConfigurationsFromAssembly(Assembly.GetAssembly(typeof(AgendamentoEntidadeConfigDb)));
+            builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+            base.OnModelCreating(builder);
         }
     }
 }
