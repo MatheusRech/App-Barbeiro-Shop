@@ -7,6 +7,8 @@ using Rech.Barbeiro.Shop.Database.Repositorio;
 using Rech.Barbeiro.Shop.Domain.Barbearia.Handlers;
 using Rech.Barbeiro.Shop.Domain.Interfaces;
 using Rech.Barbeiro.Shop.Domain.Usuario;
+using Rech.Barbeiro.Shop.Servicos.Mediator;
+using Rech.Barbeiro.Shop.Servicos.Mediator.Interfaces;
 using System.Text;
 
 namespace Rech.Barbeiro.Shop.API.Config
@@ -24,6 +26,7 @@ namespace Rech.Barbeiro.Shop.API.Config
             services.AddScoped<IDiasTrabalhoBarbeiroRepositorio, DiasTrabalhoBarbeiroRepositorio>();
             services.AddScoped<IServicoBarbeariaRepositorio, ServicoBarbeariaRepositorio>();
             services.AddScoped<IServicoBarbeiroRepositorio, ServicoBarbeiroRepositorio>();
+            services.AddScoped<ITransactionMediator, TransactionMediator>();
 
 
             services.AddMediatR(config =>
@@ -63,7 +66,6 @@ namespace Rech.Barbeiro.Shop.API.Config
 
             services.AddIdentity<UsuarioEntidade, IdentityRole<Guid>>(config =>
             {
-                config.User.AllowedUserNameCharacters = "0123456789";
                 config.Password.RequireNonAlphanumeric = true;
                 config.Password.RequiredLength = 6;
                 config.Password.RequireDigit = true;

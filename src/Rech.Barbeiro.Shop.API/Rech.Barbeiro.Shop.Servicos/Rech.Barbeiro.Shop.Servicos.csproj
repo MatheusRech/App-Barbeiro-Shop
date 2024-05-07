@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Rech.Barbeiro.Shop.Database\Rech.Barbeiro.Shop.Database.csproj" />
+    <ProjectReference Include="..\Rech.Barbeiro.Shop.Domain\Rech.Barbeiro.Shop.Domain.csproj" />
+  </ItemGroup>
+
+</Project>
