@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
-using Rech.Barbeiro.Shop.Domain.Exceptions;
+using Rech.Barbeiro.Shop.API.Helpers.Exceptions;
 using Rech.Barbeiro.Shop.Domain.Usuario.Comandos;
 using Rech.Barbeiro.Shop.Domain.Usuario.Resposta;
 
@@ -24,18 +24,26 @@ namespace Rech.Barbeiro.Shop.Domain.Usuario.Handlres
             {
                 request.Validar();
 
-                if (await _userManager.FindByNameAsync(request.Username) is not null)
+                var username = string.Concat(request.Cpf, request.BarbeariaId);
+
+                if (await _userManager.FindByNameAsync(username) is not null)
                     return new CadastrarUsuarioResposta("Usuario já cadastrado");
 
-                var usuario = new UsuarioEntidade(request.Username);
+                var usuario = new UsuarioEntidade(username, request.BarbeariaId);
+
+                usuario.Email = request.Email;
 
                 var resultado = await _userManager.CreateAsync(usuario);
 
                 if (!resultado.Succeeded)
                     return new CadastrarUsuarioResposta(string.Join('\n', resultado.Errors));
 
-
                 resultado = await _userManager.AddPasswordAsync(usuario, request.Senha);
+
+                if (!resultado.Succeeded)
+                    return new CadastrarUsuarioResposta(string.Join('\n', resultado.Errors));
+
+                resultado = await _userManager.AddToRolesAsync(usuario, request.Permissoes);
 
                 if (!resultado.Succeeded)
                     return new CadastrarUsuarioResposta(string.Join('\n', resultado.Errors));
@@ -51,8 +59,6 @@ namespace Rech.Barbeiro.Shop.Domain.Usuario.Handlres
                 _logger.LogError(ex, "Ocorreu um erro ao tentar cadastrar o usuario. Erro: {0}. Stacktrace: {1}", ex.Message, ex.StackTrace);
                 return new CadastrarUsuarioResposta($"Ocorreu um erro ao tentar cadastrar o usuario. Erro: {ex.Message}. Stacktrace: {ex.StackTrace}");
             }
-
-            
         }
     }
 }

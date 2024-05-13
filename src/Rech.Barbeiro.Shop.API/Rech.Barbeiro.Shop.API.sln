@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rech.Barbeiro.Shop.Domain",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rech.Barbeiro.Shop.Database", "Rech.Barbeiro.Shop.Database\Rech.Barbeiro.Shop.Database.csproj", "{AB493083-C0C9-4161-8C39-B6D97F9EC11D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rech.Barbeiro.Shop.Servicos", "Rech.Barbeiro.Shop.Servicos\Rech.Barbeiro.Shop.Servicos.csproj", "{227366DF-0375-42C4-8658-91918DA8D62C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rech.Barbeiro.Shop.Servicos", "Rech.Barbeiro.Shop.Servicos\Rech.Barbeiro.Shop.Servicos.csproj", "{227366DF-0375-42C4-8658-91918DA8D62C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rech.Barbeiro.Shop.API.Helpers", "Rech.Barbeiro.Shop.API.Helpers\Rech.Barbeiro.Shop.API.Helpers.csproj", "{D3FAF49E-229A-4B04-A37E-96F1FC62B871}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{227366DF-0375-42C4-8658-91918DA8D62C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{227366DF-0375-42C4-8658-91918DA8D62C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{227366DF-0375-42C4-8658-91918DA8D62C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3FAF49E-229A-4B04-A37E-96F1FC62B871}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3FAF49E-229A-4B04-A37E-96F1FC62B871}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3FAF49E-229A-4B04-A37E-96F1FC62B871}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3FAF49E-229A-4B04-A37E-96F1FC62B871}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,4 +1,4 @@
-﻿namespace Rech.Barbeiro.Shop.Domain.Exceptions
+﻿namespace Rech.Barbeiro.Shop.API.Helpers.Exceptions
 {
     public class DomainException : Exception
     {

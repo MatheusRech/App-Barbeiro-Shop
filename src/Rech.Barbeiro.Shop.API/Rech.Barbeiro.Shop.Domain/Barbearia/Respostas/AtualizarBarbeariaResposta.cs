@@ -1,5 +1,5 @@
-﻿using Rech.Barbeiro.Shop.Domain.Barbearia.Models;
-using Rech.Barbeiro.Shop.Domain.Base;
+﻿using Rech.Barbeiro.Shop.API.Helpers.Models;
+using Rech.Barbeiro.Shop.Domain.Barbearia.Models;
 
 namespace Rech.Barbeiro.Shop.Domain.Barbearia.Respostas
 {

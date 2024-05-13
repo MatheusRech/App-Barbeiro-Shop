@@ -1,6 +1,6 @@
-﻿using Rech.Barbeiro.Shop.Domain.Barbeiro;
+﻿using Rech.Barbeiro.Shop.API.Helpers.Enums;
+using Rech.Barbeiro.Shop.Domain.Barbeiro;
 using Rech.Barbeiro.Shop.Domain.Base;
-using Rech.Barbeiro.Shop.Domain.Enums;
 
 namespace Rech.Barbeiro.Shop.Domain.DiasTrabalhoBarbeiro
 {

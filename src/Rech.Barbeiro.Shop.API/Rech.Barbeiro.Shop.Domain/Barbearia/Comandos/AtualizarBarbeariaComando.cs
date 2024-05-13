@@ -1,7 +1,6 @@
-﻿using MediatR;
+﻿using Rech.Barbeiro.Shop.API.Helpers.Exceptions;
+using Rech.Barbeiro.Shop.API.Helpers.Models;
 using Rech.Barbeiro.Shop.Domain.Barbearia.Respostas;
-using Rech.Barbeiro.Shop.Domain.Base;
-using Rech.Barbeiro.Shop.Domain.Exceptions;
 using System.Text;
 
 namespace Rech.Barbeiro.Shop.Domain.Barbearia.Comandos

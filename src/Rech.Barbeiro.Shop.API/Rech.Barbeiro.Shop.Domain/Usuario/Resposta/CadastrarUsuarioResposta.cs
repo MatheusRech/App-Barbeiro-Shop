@@ -1,4 +1,4 @@
-﻿using Rech.Barbeiro.Shop.Domain.Base;
+﻿using Rech.Barbeiro.Shop.API.Helpers.Models;
 
 namespace Rech.Barbeiro.Shop.Domain.Usuario.Resposta
 {

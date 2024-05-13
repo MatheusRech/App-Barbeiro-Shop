@@ -7,7 +7,6 @@
         public string Logo { get; set; }
         public string Endereco { get; set; }
         public string Descricao { get; set; }
-        public Guid UsuarioId { get; set; }
 
         public static BarbeariaModel FromEntidade(BarbeariaEntidade entidade)
         {
@@ -18,7 +17,6 @@
                 Logo = entidade.Logo,
                 Endereco = entidade.Endereco,
                 Descricao = entidade.Descricao,
-                UsuarioId = entidade.UsuarioId
             };
         }
     }

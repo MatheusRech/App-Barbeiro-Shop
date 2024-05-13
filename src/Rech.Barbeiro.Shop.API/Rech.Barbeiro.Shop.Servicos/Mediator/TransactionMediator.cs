@@ -1,6 +1,6 @@
 ﻿using MediatR;
+using Rech.Barbeiro.Shop.API.Helpers.Models;
 using Rech.Barbeiro.Shop.Database.Base;
-using Rech.Barbeiro.Shop.Domain.Base;
 using Rech.Barbeiro.Shop.Servicos.Mediator.Interfaces;
 
 namespace Rech.Barbeiro.Shop.Servicos.Mediator
@@ -10,21 +10,25 @@ namespace Rech.Barbeiro.Shop.Servicos.Mediator
         private readonly ContextoDatabase _contextoDatabase;
         private readonly IMediator _mediator;
 
-        public TransactionMediator(ContextoDatabase contextoDatabase)
+        public TransactionMediator(ContextoDatabase contextoDatabase, IMediator mediator)
         {
             _contextoDatabase = contextoDatabase;
+            _mediator = mediator;
         }
 
         public async Task<RespostaComando> EnviarComando<T>(T comando)
         {
-            if(!(comando is Comando<RespostaComando>))
-                throw new ArgumentException($"O tipo {typeof(T)} não é um comando válido.");
+            var tiboComando = typeof(T);
+            Type tipoResposta = tiboComando.BaseType.GetGenericArguments()[0];
 
+            if(tiboComando.BaseType.Name != "Comando`1" && tipoResposta.BaseType != typeof(RespostaComando))
+                throw new ArgumentException("O tipo base não está conforme");
+            
             var transacao = await _contextoDatabase.Database.BeginTransactionAsync();
 
             try
             {
-                var resposta = await _mediator.Send(comando as Comando<RespostaComando>);
+                var resposta = (await _mediator.Send(comando)) as RespostaComando;
 
                 if (!resposta.Sucesso)
                     await transacao.RollbackAsync();

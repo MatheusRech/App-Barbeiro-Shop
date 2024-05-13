@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Rech.Barbeiro.Shop.API.Helpers.Constantes;
 using Rech.Barbeiro.Shop.Database.Base.ConfigDomain;
 using Rech.Barbeiro.Shop.Domain.Agendamento;
 using Rech.Barbeiro.Shop.Domain.AgendamentoFolga;
@@ -35,6 +36,25 @@ namespace Rech.Barbeiro.Shop.Database.Base
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
+            builder.Entity<IdentityRole<Guid>>().HasData(
+                new IdentityRole<Guid>(PermissoesUsuario.Admin)
+                {
+                    Id = new Guid("19ba23e3-b4f1-4220-a884-090599dae20c"),
+                    NormalizedName = PermissoesUsuario.Admin.ToUpper()
+                },
+                new IdentityRole<Guid>(PermissoesUsuario.Barbearia)
+                {
+                    Id = new Guid("ae4fedf9-0e99-46e6-b9ae-3843eb83ed99"),
+                    NormalizedName = PermissoesUsuario.Barbearia.ToUpper()
+                },
+                new IdentityRole<Guid>(PermissoesUsuario.Cliente)
+                {
+                    Id = new Guid("3fe18c63-baa1-4bcb-815a-fd62821e5207"),
+                    NormalizedName = PermissoesUsuario.Cliente.ToUpper()
+                }
+            );
+
+
             builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
             base.OnModelCreating(builder);
         }

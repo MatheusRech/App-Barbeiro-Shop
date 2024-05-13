@@ -1,6 +1,5 @@
 ﻿using Rech.Barbeiro.Shop.Domain.Barbeiro;
 using Rech.Barbeiro.Shop.Domain.Base;
-using Rech.Barbeiro.Shop.Domain.Enums;
 using Rech.Barbeiro.Shop.Domain.ServicoBarbearia;
 
 namespace Rech.Barbeiro.Shop.Domain.Barbearia
@@ -11,16 +10,14 @@ namespace Rech.Barbeiro.Shop.Domain.Barbearia
         public string Logo { get; set; }
         public string Endereco { get; set; }
         public string Descricao { get; set; }
-        public Guid UsuarioId { get; set; }
         public virtual IEnumerable<BarbeiroEntidade> Barbeiros { get; set; }
         public virtual IEnumerable<ServicoBarbeariaEntidade> Servicos { get; set; }
 
-        public BarbeariaEntidade(string nome, string logo, string endereco, Guid usuarioId)
+        public BarbeariaEntidade(string nome, string logo, string endereco)
         {
             Nome = nome;
             Logo = logo;
             Endereco = endereco;
-            UsuarioId = usuarioId;
         }
     }
 }

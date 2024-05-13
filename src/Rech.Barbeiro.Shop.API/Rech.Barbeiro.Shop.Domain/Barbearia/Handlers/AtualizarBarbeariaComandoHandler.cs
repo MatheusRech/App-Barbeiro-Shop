@@ -1,8 +1,8 @@
 ﻿using MediatR;
+using Rech.Barbeiro.Shop.API.Helpers.Exceptions;
 using Rech.Barbeiro.Shop.Domain.Barbearia.Comandos;
 using Rech.Barbeiro.Shop.Domain.Barbearia.Models;
 using Rech.Barbeiro.Shop.Domain.Barbearia.Respostas;
-using Rech.Barbeiro.Shop.Domain.Exceptions;
 using Rech.Barbeiro.Shop.Domain.Interfaces;
 
 namespace Rech.Barbeiro.Shop.Domain.Barbearia.Handlers

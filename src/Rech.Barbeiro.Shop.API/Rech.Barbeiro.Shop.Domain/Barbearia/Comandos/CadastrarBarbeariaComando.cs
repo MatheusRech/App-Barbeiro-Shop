@@ -1,13 +1,12 @@
-﻿using Rech.Barbeiro.Shop.Domain.Barbearia.Respostas;
-using Rech.Barbeiro.Shop.Domain.Base;
-using Rech.Barbeiro.Shop.Domain.Exceptions;
+﻿using Rech.Barbeiro.Shop.API.Helpers.Exceptions;
+using Rech.Barbeiro.Shop.API.Helpers.Models;
+using Rech.Barbeiro.Shop.Domain.Barbearia.Respostas;
 using System.Text;
 
 namespace Rech.Barbeiro.Shop.Domain.Barbearia.Comandos
 {
     public class CadastrarBarbeariaComando : Comando<CadastrarBarbeariaResposta>
     {
-        public Guid UsuarioId { get; set; }
         public string Nome { get; set; }
         public string Logo { get; set; }
         public string Endereco { get; set; }

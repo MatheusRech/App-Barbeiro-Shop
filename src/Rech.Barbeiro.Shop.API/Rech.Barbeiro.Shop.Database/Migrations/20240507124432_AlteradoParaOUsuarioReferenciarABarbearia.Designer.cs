@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using Rech.Barbeiro.Shop.Database.Base;
@@ -11,9 +12,11 @@ using Rech.Barbeiro.Shop.Database.Base;
 namespace Rech.Barbeiro.Shop.Database.Migrations
 {
     [DbContext(typeof(ContextoDatabase))]
-    partial class ContextoDatabaseModelSnapshot : ModelSnapshot
+    [Migration("20240507124432_AlteradoParaOUsuarioReferenciarABarbearia")]
+    partial class AlteradoParaOUsuarioReferenciarABarbearia
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -47,26 +50,6 @@ namespace Rech.Barbeiro.Shop.Database.Migrations
                         .HasDatabaseName("RoleNameIndex");
 
                     b.ToTable("AspNetRoles", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("19ba23e3-b4f1-4220-a884-090599dae20c"),
-                            Name = "AdministradorPicaDasGalaxias",
-                            NormalizedName = "ADMINISTRADORPICADASGALAXIAS"
-                        },
-                        new
-                        {
-                            Id = new Guid("ae4fedf9-0e99-46e6-b9ae-3843eb83ed99"),
-                            Name = "Barbearia",
-                            NormalizedName = "BARBEARIA"
-                        },
-                        new
-                        {
-                            Id = new Guid("3fe18c63-baa1-4bcb-815a-fd62821e5207"),
-                            Name = "Cliente",
-                            NormalizedName = "CLIENTE"
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>

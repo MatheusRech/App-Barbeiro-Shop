@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Rech.Barbeiro.Shop.Database.Base;
 using Rech.Barbeiro.Shop.Database.Repositorio;
+using Rech.Barbeiro.Shop.Domain.Autenticacao.Options;
 using Rech.Barbeiro.Shop.Domain.Barbearia.Handlers;
 using Rech.Barbeiro.Shop.Domain.Interfaces;
 using Rech.Barbeiro.Shop.Domain.Usuario;
@@ -15,7 +16,7 @@ namespace Rech.Barbeiro.Shop.API.Config
 {
     public static class InjecaoDependenciaConfig
     {
-        public static IServiceCollection AddInjecaoDepedencia(this IServiceCollection services)
+        public static IServiceCollection AddInjecaoDepedencia(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddScoped<IAgendamentoRepositorio, AgendamentoRepositorio>();
             services.AddScoped<IAgendamentoFolgaRepositorio, AgendamentoFolgaRepositorio>();
@@ -33,6 +34,8 @@ namespace Rech.Barbeiro.Shop.API.Config
             {
                 config.RegisterServicesFromAssemblyContaining<CadastrarBarbeariaComandoHandler>();
             });
+
+            services.Configure<JwtOptions>(configuration.GetSection("JWT"));
 
             return services;
         }

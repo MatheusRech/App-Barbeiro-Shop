@@ -1,9 +1,9 @@
 ﻿using MediatR;
 using Microsoft.Extensions.Logging;
+using Rech.Barbeiro.Shop.API.Helpers.Exceptions;
 using Rech.Barbeiro.Shop.Domain.Barbearia.Comandos;
 using Rech.Barbeiro.Shop.Domain.Barbearia.Models;
 using Rech.Barbeiro.Shop.Domain.Barbearia.Respostas;
-using Rech.Barbeiro.Shop.Domain.Exceptions;
 using Rech.Barbeiro.Shop.Domain.Interfaces;
 
 namespace Rech.Barbeiro.Shop.Domain.Barbearia.Handlers
@@ -25,7 +25,7 @@ namespace Rech.Barbeiro.Shop.Domain.Barbearia.Handlers
             {
                 request.Validar();
 
-                var barbearia = new BarbeariaEntidade(request.Nome, request.Logo, request.Endereco, request.UsuarioId);
+                var barbearia = new BarbeariaEntidade(request.Nome, request.Logo, request.Endereco);
 
                 await _barbeariaRepositorio.Inserir(barbearia);
 

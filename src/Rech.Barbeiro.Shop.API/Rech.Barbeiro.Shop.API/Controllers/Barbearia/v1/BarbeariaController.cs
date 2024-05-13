@@ -31,6 +31,16 @@ namespace Rech.Barbeiro.Shop.API.Controllers.Barbearia.v1
         /// <response code="200">Barbearia cadastrada com sucesso.</response>
         /// <response code="400">Ocorreu um erro de negócio.</response>
         /// <returns></returns>
+        /// <remarks>
+        /// Exemplo:
+        /// <br>
+        /// {
+        ///   "nome": "Teste Barbeiro SHop",
+        ///   "logo": "teste",
+        ///   "endereco": "Av. Teste, Nº TESTE, ao lado da loja TESTE"
+        /// }
+        /// </br>
+        /// </remarks>
         [HttpPost]
         [ProducesResponseType<CadastrarBarbeariaResposta>(200)]
         [ProducesResponseType<CadastrarBarbeariaResposta>(400)]

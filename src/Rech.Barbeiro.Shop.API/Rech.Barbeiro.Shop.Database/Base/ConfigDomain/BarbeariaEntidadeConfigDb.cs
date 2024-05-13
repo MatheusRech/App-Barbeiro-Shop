@@ -10,8 +10,6 @@ namespace Rech.Barbeiro.Shop.Database.Base.ConfigDomain
         {
             builder.HasKey(x => x.Id);
             
-            builder.HasIndex(x => x.UsuarioId);
-            
             builder.Property(x => x.Nome).IsRequired().HasMaxLength(120);
             builder.Property(x => x.Logo).IsRequired();
             builder.Property(x => x.Endereco).IsRequired().HasMaxLength(300);

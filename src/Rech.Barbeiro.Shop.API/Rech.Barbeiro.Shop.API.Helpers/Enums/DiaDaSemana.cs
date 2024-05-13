@@ -1,4 +1,4 @@
-﻿namespace Rech.Barbeiro.Shop.Domain.Enums
+﻿namespace Rech.Barbeiro.Shop.API.Helpers.Enums
 {
     public enum DiaDaSemana
     {

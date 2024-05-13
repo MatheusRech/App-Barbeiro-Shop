@@ -7,6 +7,7 @@ using Rech.Barbeiro.Shop.API.Config;
 using Rech.Barbeiro.Shop.API.Swagger;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using Swashbuckle.AspNetCore.SwaggerUI;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -39,7 +40,7 @@ builder.Services.AddVersionedApiExplorer(p =>
 
 #endregion
 
-builder.Services.AddInjecaoDepedencia();
+builder.Services.AddInjecaoDepedencia(builder.Configuration);
 builder.Services.AddDatabase(builder.Configuration);
 builder.Services.AddAutenticacao(builder.Configuration);
 
@@ -47,7 +48,12 @@ builder.Services.AddAutenticacao(builder.Configuration);
 
 builder.Services.AddTransient<IConfigureOptions<SwaggerGenOptions>, ApiInformation>();
 
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(options =>
+{
+    var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+    var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+    options.IncludeXmlComments(xmlPath);
+});
 #endregion
 
 
